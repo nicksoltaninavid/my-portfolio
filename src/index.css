@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream:      #F6F3EC;
+  --color-surface:    #FDFBF6;
+  --color-ink:        #211D16;
+  --color-soft:       #3E3930;
+  --color-mute:       #847C6C;
+  --color-line:       #E6E0D2;
+  --color-line2:      #D8D1BF;
+  --color-terra:      #C9431A;
+  --color-terra-soft: #F8E8E0;
+
+  --font-display: "Markazi Text", serif;
+  --font-body: "Vazirmatn", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-cream font-body text-[15px] leading-[1.95] text-soft antialiased; }
+  ::selection { @apply bg-terra text-white; }
+  :focus-visible { outline: 2px solid var(--color-terra); outline-offset: 3px; border-radius: 4px; }
+}
+
+@layer components {
+  .bio { @apply mb-3.5 text-[15px]; }
+  .hl  { @apply font-medium text-ink; }
+
+  .arrow-link { @apply inline-flex items-center gap-1 text-[13.5px] font-medium text-terra no-underline; }
+  .arrow-link .arr { @apply transition-transform duration-200; }
+  .arrow-link:hover .arr { @apply -translate-x-0.5 -translate-y-0.5; }
+  .arrow-link:hover { @apply underline underline-offset-4; }
+
+  .skill-row { @apply flex items-center gap-2.5 border-b border-line py-2 text-[14.5px] transition-colors; }
+  .skill-row:hover { @apply text-ink; }
+  .skill-row:last-child { @apply border-b-0; }
+  .skill-row .dot { @apply h-[5px] w-[5px] shrink-0 rounded-full bg-line2 transition-all duration-200; }
+  .skill-row:hover .dot { @apply scale-[1.4] bg-terra; }
+}
+
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 999;
+  pointer-events: none; opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #f6f3ec; }
+::-webkit-scrollbar-thumb { background: #d8d1bf; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #847c6c; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+@keyframes rise       { from { opacity: 0; transform: translateY(8px); } }
+@keyframes fade-in    { from { opacity: 0; } }
+@keyframes content-in { from { opacity: 0; transform: translateY(6px); } }
+.anim-rise { animation: rise 0.6s ease both; }
+.app-in    { animation: fade-in 0.5s ease both; }
+.panel-in  { animation: content-in 0.35s ease; }
+
+@keyframes rot {
+  0%, 20%  { transform: translateY(0); }
+  26%, 46% { transform: translateY(-1.35em); }
+  52%, 72% { transform: translateY(-2.7em); }
+  78%, 96% { transform: translateY(-4.05em); }
+  100%     { transform: translateY(-5.4em); }
+}
+.rot-track { animation: rot 10s cubic-bezier(0.6, 0, 0.3, 1) infinite; }
+
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 32s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.uline path {
+  stroke-dasharray: 160; stroke-dashoffset: 160;
+  animation: draw 0.9s 0.55s cubic-bezier(0.5, 0, 0.3, 1) forwards;
+}
+
+@keyframes dot-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(201, 67, 26, 0.35); }
+  70%  { box-shadow: 0 0 0 7px rgba(201, 67, 26, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(201, 67, 26, 0); }
+}
+.dot-pulse { animation: dot-pulse 2.4s ease-out infinite; }
+
+.reveal {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.65s ease var(--d, 0s), transform 0.65s ease var(--d, 0s);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .uline path { stroke-dashoffset: 0; }
+}
