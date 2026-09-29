@@ -1,32 +1,63 @@
-# React + TypeScript + Vite
+# پورتفولیو شخصی — نیک سلطانی
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+پورتفولیوی شخصی من به‌عنوان یک **توسعه‌دهنده فرانت‌اند جونیور**، با تمرکز بر طراحی و توسعه رابط‌های کاربری مدرن، ریسپانسیو و کاربردی.
 
-Currently, two official plugins are available:
+🔗 **دموی زنده:**  [https://my-portfolio-nicksoltaninavid1.vercel.app/]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ ویژگی‌ها
 
-## React Compiler
+* 📱 طراحی کاملاً ریسپانسیو برای موبایل، تبلت و دسکتاپ
+* 🌐 پشتیبانی کامل از زبان فارسی و راست‌چین (RTL)
+* ⌨️ ناوبری با کیبورد و رعایت اصول دسترس‌پذیری (ARIA)
+* 🎨 طراحی مدرن و مینیمال
+* ✨ انیمیشن‌های CSS
+* ♿ پشتیبانی از `prefers-reduced-motion`
+* 🔤 استفاده از فونت‌های Vazirmatn و Markazi Text
+* ⚡ بهینه و سریع با استفاده از Vite
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ تکنولوژی‌های استفاده‌شده
 
-## Expanding the Oxlint configuration
+* React
+* TypeScript
+* Tailwind CSS
+* Vite
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## 📸 نمای پروژه
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+![پیش‌نمایش پورتفولیو](./public/portfolio-preview.jpg)
+
+## 📂 ساختار پروژه
+
+پروژه با استفاده از کامپوننت‌های قابل استفاده مجدد در React ساخته شده و ساختار آن با تمرکز بر خوانایی، نگهداری آسان و طراحی ریسپانسیو شکل گرفته است.
+
+## 🚀 اجرای پروژه
+
+ابتدا ریپازیتوری را Clone کنید:
+
+```bash
+git clone YOUR_REPOSITORY_URL
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+سپس وابستگی‌ها را نصب کنید:
+
+```bash
+npm install
+```
+
+برای اجرای پروژه در محیط توسعه:
+
+```bash
+npm run dev
+```
+
+برای ساخت نسخه Production:
+
+```bash
+npm run build
+```
+
+## 👨‍💻 درباره من
+
+من یک توسعه‌دهنده فرانت‌اند جونیور هستم و به ساخت رابط‌های کاربری مدرن، ریسپانسیو و تجربه‌های کاربری مناسب علاقه دارم.
+
+در حال حاضر تمرکز اصلی من روی توسعه فرانت‌اند و تقویت مهارت‌هایم در JavaScript، React، TypeScript و ابزارهای مدرن این حوزه است.
